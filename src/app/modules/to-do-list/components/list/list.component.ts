@@ -1,15 +1,28 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { DataTable } from '../../../../models/data-table.model';
+import { TaskService } from '../../../../services/task/task.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
-export class ListComponent implements OnChanges {
+export class ListComponent implements OnChanges, OnInit {
 
   @Input() taskGerada: string = '';
   @ViewChild(MatTable) table!: MatTable<any>;
+
+  displayedColumns: string[] = ['position', 'task', 'status', 'action'];
+  dataSource: DataTable[] = [];
+
+  constructor(
+    private taskService: TaskService
+  ) { }
+
+  ngOnInit(): void {
+    this.dataSource = this.taskService.getList();
+  }
 
   ngOnChanges(): void {
     if (this.taskGerada !== '')
@@ -17,25 +30,22 @@ export class ListComponent implements OnChanges {
   }
 
   addItem(task: string): void {
-    const index = this.dataSource.length
-    const item = { position: (index + 1), task: task, status: false }
-    this.dataSource.push(item)
-    this.table.renderRows()
+    const index = this.dataSource.length;
+    const item = { position: (index + 1), task: task, status: false };
+    this.dataSource.push(item);
+    this.taskService.updateList(this.dataSource);
+    this.table.renderRows();
   }
 
   removeItem(position: number) {
     this.dataSource = this.dataSource.filter(item => item.position !== position);
+    this.taskService.updateList(this.dataSource);
   }
-
-  displayedColumns: string[] = ['position', 'task', 'status', 'action'];
-  dataSource = [
-    { position: 1, task: 'Task exemplo', status: false },
-    { position: 2, task: 'Task exemplo => status concluído', status: true }
-  ];
 
   changeStatus(position: number): void {
     const index = this.dataSource.findIndex(item => item.position === position)
     this.dataSource[index].status = !this.dataSource[index].status;
+    this.taskService.updateList(this.dataSource);
   }
 
 }

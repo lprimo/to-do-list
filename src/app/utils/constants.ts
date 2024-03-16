@@ -1,1 +1,2 @@
-export const SESSION = 'lprimo';
+export const SESSION = 'AuthUser';
+export const DATA_SOURCE = 'dataSource';

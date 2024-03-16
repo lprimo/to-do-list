@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { SESSION } from '../../utils/constants';
 
 @Component({
   selector: 'app-to-do-list',
@@ -8,6 +9,9 @@ import { Router } from '@angular/router';
   styleUrl: './to-do-list.component.scss'
 })
 export class ToDoListComponent implements OnInit {
+
+  taskGerada: string = '';
+  User: string = localStorage.getItem(SESSION) || '';
 
   constructor(
     private authService: AuthService,
@@ -22,8 +26,6 @@ export class ToDoListComponent implements OnInit {
     if (!this.authService.isAuthenticated())
       this.router.navigate(['/Register'])
   }
-
-  taskGerada: string = '';
 
   handleEvent(eventData: string): void {
     this.taskGerada = eventData;

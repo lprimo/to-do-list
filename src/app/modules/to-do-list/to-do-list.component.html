@@ -1,6 +1,7 @@
 <app-header></app-header>
 <div class="list">
     <div class="container">
+        <h1>Olá, {{ User }}</h1>
         <app-list [taskGerada]="taskGerada"></app-list>
         <app-item (eventTask)="handleEvent($event)"></app-item>
     </div>
