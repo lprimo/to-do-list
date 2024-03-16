@@ -1,0 +1,26 @@
+<div class="sign-in">
+  <div class="sign-in__formRegister">
+    <h1>Bem-vindo</h1>
+    <div class="form">
+      <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+        <mat-form-field class="d-block">
+          <mat-label>Nome:</mat-label>
+          <input 
+          type="text" 
+          formControlName="name" 
+          id="name" 
+          required 
+          matInput
+          >
+        </mat-form-field>
+        
+        <button 
+        mat-raised-button 
+        [disabled]="!formRegister.valid"
+        disabledInteractive 
+        matTooltip="Nome precisa ser inserido!">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div class="sign-in__image"></div>
+</div>

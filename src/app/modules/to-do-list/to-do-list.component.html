@@ -1,0 +1,7 @@
+<app-header></app-header>
+<div class="list">
+    <div class="container">
+        <app-list [taskGerada]="taskGerada"></app-list>
+        <app-item (eventTask)="handleEvent($event)"></app-item>
+    </div>
+</div>

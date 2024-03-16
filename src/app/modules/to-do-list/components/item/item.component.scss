@@ -1,0 +1,14 @@
+.form {
+    margin-top: 30px;
+    form {
+        display: flex;
+        align-items: center;
+        .taskInput {
+            width: -webkit-fill-available;
+        }
+        .taskButton {
+            min-width: 16%;
+            margin-left: 10px;
+        }
+    }
+}

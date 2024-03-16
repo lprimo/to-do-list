@@ -1,0 +1,47 @@
+.sign-in {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    h1 {
+        font-family: fantasy;
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 30px;
+        color: #515151;
+    }
+
+    &__formRegister {
+        width: 30%;
+        height: 100%;
+    }
+
+    &__image {
+        width: 70%;
+        height: 100%;
+        background-image: url('../../../assets/images/to-do-list.jpg');
+        background-size: cover;
+        background-position: right;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .form {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        border: 1px solid #b5b5b5;
+        justify-content: center;
+        position: absolute;
+        left: 50px;
+        padding: 22px;
+        bottom: 44%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #b5b5b5;
+        form {
+            width: 100%;
+            button {
+                float: right;
+            }
+        }
+    }
+}

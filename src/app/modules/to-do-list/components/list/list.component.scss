@@ -1,0 +1,39 @@
+.demo-table {
+    width: 100%;
+}
+
+.mat-column-demo-position {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+}
+
+.mat-column-demo-name {
+    padding-left: 16px;
+    font-size: 20px;
+}
+
+.mat-column-demo-weight {
+    font-style: italic;
+}
+
+.with-5 {
+    width: 5%;
+}
+
+.with-10 {
+    width: 10%;
+}
+
+.green {
+    background-color: #67ca57;
+}
+
+.fazer {
+    background-color: #FFF !important;
+}
+
+.concluido {
+    background-color: #67ca57 !important;
+}

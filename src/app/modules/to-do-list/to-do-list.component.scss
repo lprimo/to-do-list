@@ -1,0 +1,15 @@
+.list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .container {
+        width: 80%;
+        height: 70px;
+        margin-top: 30px;
+        app-list {
+            width: 100%;
+        }
+    }
+}
+
